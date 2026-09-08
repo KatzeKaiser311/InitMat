@@ -6,9 +6,25 @@ from PySide6.QtWidgets import QApplication
 from .initial_state_editor import InitialStateEditor
 
 
-def main(domain_size, shape_file, pom_shape_file, psd_file, output_dir, visualization_dir, input_mat=None, boundary_mode="periodic", target_porosity=0.45):
+def main(domain_size, shape_file, pom_shape_file, psd_file, output_dir, visualization_dir, input_mat=None, boundary_mode="periodic", target_porosity=0.45, init_cb_concentration=0.3168 / 5, c_n_b=10.0, min_cb_concentration=0.0132 / 8, max_cb_cells=216):
     app = QApplication.instance() or QApplication(sys.argv)
-    editor = InitialStateEditor(domain_size=domain_size, shape_file=shape_file, pom_shape_file=pom_shape_file, psd_file=psd_file, output_dir=output_dir, visualization_dir=visualization_dir, input_mat=input_mat, boundary_mode=boundary_mode, target_porosity=target_porosity)
+
+    editor = InitialStateEditor(
+        domain_size=domain_size,
+        shape_file=shape_file,
+        pom_shape_file=pom_shape_file,
+        psd_file=psd_file,
+        output_dir=output_dir,
+        visualization_dir=visualization_dir,
+        input_mat=input_mat,
+        boundary_mode=boundary_mode,
+        target_porosity=target_porosity,
+        init_cb_concentration=init_cb_concentration,
+        c_n_b=c_n_b,
+        min_cb_concentration=min_cb_concentration,
+        max_cb_cells=max_cb_cells,
+    )
+
     editor.show()
     return app.exec()
 

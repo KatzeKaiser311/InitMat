@@ -20,4 +20,8 @@ if __name__ == "__main__":
         input_mat=input_mat,
         boundary_mode="periodic",
         target_porosity=0.45,
+        init_cb_concentration=0.3168 / 5,
+        c_n_b=10,
+        min_cb_concentration=0.0132 / 8,
+        max_cb_cells=216,
     ))
